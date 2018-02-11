@@ -15,7 +15,6 @@ namespace VPShelter
         public string VolType
         {
             get { return this.volType; }
-            //set { this.volType = value; }
         }
 
         //Constructors
@@ -35,12 +34,12 @@ namespace VPShelter
         //Methods
         public override void FeedAllPets()
         {
-            Console.WriteLine(EmpName + " has fed all the " + VolType);
+            Console.WriteLine("You have fed all the " + VolType);
         }
 
         public override void WaterAllPets()
         {
-            Console.WriteLine(EmpName + " has given all the " + VolType + " water");
+            Console.WriteLine("You have given all the " + VolType + " water");
         }
 
         public override int PrintEmpID()

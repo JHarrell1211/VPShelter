@@ -15,7 +15,6 @@ namespace VPShelter
         public string MangDept
         {
             get { return this.mangDept; }
-            //set { this.mangDept = value; }
         }
 
         //Constructors
@@ -41,6 +40,11 @@ namespace VPShelter
         public override void FeedAllPets()
         {
             Console.WriteLine(EmpName + " has fed the " + MangDept);
+        }
+
+        public override void WaterAllPets()
+        {
+            Console.WriteLine(EmpName + " has given all the " + MangDept + " water");
         }
 
         public override string PrintEmpName()

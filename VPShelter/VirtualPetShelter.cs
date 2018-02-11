@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace VPShelter
 {
-    class VirtualPetShelter
+    public class VirtualPetShelter
     {
 
 
+        public List<Employee> EmployeeList { get; set; }
+        public List<Dogs> DogsList { get; set; }
+
+
+  
 
         //public List<string> DisplayClientNames() // returns a list
         //{
