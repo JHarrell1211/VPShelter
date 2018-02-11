@@ -47,7 +47,7 @@ namespace VPShelter
             //}
 
             Timer petTimer = new Timer();
-            petTimer.Interval = 10000; // 10 second intervals
+            petTimer.Interval = 12000; // 12 second intervals
 
             petTimer.AutoReset = true;  // Resets for repeated events
 
@@ -62,7 +62,7 @@ namespace VPShelter
                 Console.WriteLine(dogsList[i].PrintName() + " levels have changed!!");
             }
 
-
+            Console.WriteLine("Pets levels start the same, but will randomly change over time \n");
 
             while (input != 6)
             {
@@ -72,11 +72,11 @@ namespace VPShelter
                 Console.WriteLine("");
                 Console.WriteLine("6. Exit");
                 input = int.Parse(Console.ReadLine());
-
+               
                 if (input == 1)
                 {
                     Console.WriteLine("");
-                    Console.WriteLine("Volunteer"); 
+                    Console.WriteLine("Volunteer");
                     Console.WriteLine("Please keep our pets level's as close to 0 as possible.  Thank You! \n");
                     Console.WriteLine("1. Check Pet Levels");
                     Console.WriteLine("2. Feed Pets");
@@ -88,23 +88,81 @@ namespace VPShelter
 
                     if (newInput == 1)
                     {
-                        dog1.CheckLevels(); dog2.CheckLevels(); dog3.CheckLevels(); dog4.CheckLevels();
+                        foreach (Dogs level in dogsList)
+                        {
+                            Console.WriteLine(level.CheckLevels());
+                        }
+
                         Console.WriteLine("");
+                        newInput = 0;
                     }
 
                     if (newInput == 2)
                     {
-                        dog1.Eat(); dog2.Eat(); dog3.Eat(); dog4.Eat();
+                        Console.WriteLine("1. Feed " + dog1.PetName);
+                        Console.WriteLine("2. Feed " + dog2.PetName);
+                        Console.WriteLine("3. Feed " + dog3.PetName);
+                        Console.WriteLine("4. Feed " + dog4.PetName);
+                        Console.WriteLine("5. Feed all dogs ");
+                        newInput = int.Parse(Console.ReadLine());
                         Console.WriteLine("");
-                        vol1.FeedAllPets();
-                        Console.WriteLine("");
+
+                        if (newInput == 1)
+                        {
+                            dog1.Eat();
+                        }
+                        if (newInput == 2)
+                        {
+                            dog2.Eat();
+                        }
+                        if (newInput == 3)
+                        {
+                            dog3.Eat();
+                        }
+                        if (newInput == 4)
+                        {
+                            dog4.Eat();
+                        }
+                        if (newInput == 5)
+                        {
+                            dog1.Eat(); dog2.Eat(); dog3.Eat(); dog4.Eat();
+                            Console.WriteLine("");
+                        }
+                        newInput = 0;
                     }
 
                     if (newInput == 3)
                     {
-                        dog1.DrinkUp(); dog2.DrinkUp(); dog3.DrinkUp(); dog4.DrinkUp();
-                        vol1.WaterAllPets();
+                        Console.WriteLine("1. Give water to " + dog1.PetName);
+                        Console.WriteLine("2. Give water to " + dog2.PetName);
+                        Console.WriteLine("3. Give water to " + dog3.PetName);
+                        Console.WriteLine("4. Give water to " + dog4.PetName);
+                        Console.WriteLine("5. Give water to all dogs ");
+                        newInput = int.Parse(Console.ReadLine());
                         Console.WriteLine("");
+
+                        if (newInput == 1)
+                        {
+                            dog1.DrinkUp();
+                        }
+                        if (newInput == 2)
+                        {
+                            dog2.DrinkUp();
+                        }
+                        if (newInput == 3)
+                        {
+                            dog3.DrinkUp();
+                        }
+                        if (newInput == 4)
+                        {
+                            dog4.DrinkUp();
+                        }
+                        if (newInput == 5)
+                        {
+                            dog1.DrinkUp(); dog2.DrinkUp(); dog3.DrinkUp(); dog4.DrinkUp();
+                            Console.WriteLine("");
+                        }
+                        newInput = 0;
                     }
 
                     if (newInput == 4)
@@ -120,29 +178,25 @@ namespace VPShelter
                         if (newInput == 1)
                         {
                             dog1.Play();
-                            Console.WriteLine("You played with " + dog1.PetName + "\n");
                         }
                         if (newInput == 2)
                         {
                             dog2.Play();
-                            Console.WriteLine("You played with " + dog2.PetName + "\n");
                         }
                         if (newInput == 3)
                         {
                             dog3.Play();
-                            Console.WriteLine("You played with " + dog3.PetName +"\n");
                         }
                         if (newInput == 4)
                         {
                             dog4.Play();
-                            Console.WriteLine("You played with " + dog4.PetName + "\n");
                         }
                         if (newInput == 5)
                         {
                             dog1.Play(); dog2.Play(); dog3.Play(); dog4.Play();
-                            Console.WriteLine("You have played with the dogs");
                             Console.WriteLine();
                         }
+                        newInput = 0;
                     }
 
                     if (newInput == 5)
@@ -158,38 +212,43 @@ namespace VPShelter
                     Console.WriteLine("1. Pet Adoption");
                     Console.WriteLine("2. Order Pet Food");
                     Console.WriteLine("3. Pet Information");
+                    Console.WriteLine("4. Employee Information");
+                    Console.WriteLine("5. Exit");
                     input = int.Parse(Console.ReadLine());
 
                     if (input == 1)
                     {
+                        i = 1;
                         Console.WriteLine("");
                         Console.WriteLine("Choose A Pet");
-                        Console.WriteLine("1. " + dog1.PetName);
-                        Console.WriteLine("2. " + dog2.PetName);
-                        Console.WriteLine("3. " + dog3.PetName);
-                        Console.WriteLine("4. " + dog4.PetName);
-                        newInput = int.Parse(Console.ReadLine());
+
+                        foreach (Dogs info in dogsList)
+                        {
+                            Console.WriteLine(i++ + ". " + info.PrintPetInfo());        
+                        }
                         Console.WriteLine("");
 
                         if (newInput == 1)
                         {
-                            Console.WriteLine(dog1.PetName + " has been adopted!! \n");
+                            Console.WriteLine(dog1.Adopted());
                         }
 
                         if (newInput == 2)
                         {
-                            Console.WriteLine(dog2.PetName + " has been adopted!! \n");
+                            Console.WriteLine(dog2.Adopted());
                         }
 
                         if (newInput == 3)
                         {
-                            Console.WriteLine(dog3.PetName + " has been adopted!! \n");
+                            Console.WriteLine(dog3.Adopted());
                         }
 
                         if (newInput == 4)
                         {
-                            Console.WriteLine(dog4.PetName + " has been adopted!! \n");
+                            Console.WriteLine(dog4.Adopted()); 
                         }
+                        Console.WriteLine("");
+                        newInput = 0;
                     }
 
                     if (input == 2)
@@ -219,8 +278,9 @@ namespace VPShelter
                         {
                             Console.WriteLine(dog4.PetDiet + " has been ordered \n");
                         }
+                        newInput = 0;
                     }
-                    if(input == 3)
+                    if (input == 3)
                     {
                         Console.WriteLine("");
                         Console.WriteLine(dog1.PrintPetInfo());
@@ -228,6 +288,27 @@ namespace VPShelter
                         Console.WriteLine(dog3.PrintPetInfo());
                         Console.WriteLine(dog4.PrintPetInfo());
                         Console.WriteLine("");
+                        input = 0;
+                    }
+
+                    if (input == 4)
+                    {
+                        i = 1;
+                        foreach(Employee info in employeeList)
+                        {
+                            Console.WriteLine(i++ + ". " + info.BasicEmpInfo());
+                        }
+                        //Console.WriteLine("");
+                        //Console.WriteLine(vol1.BasicEmpInfo());
+                        //Console.WriteLine(vol2.BasicEmpInfo());
+                        //Console.WriteLine(mang1.BasicEmpInfo());
+                        Console.WriteLine("");
+                        input = 0;
+                    }
+
+                    if (input == 5)
+                    {
+                        input = 6;
                     }
 
                 }

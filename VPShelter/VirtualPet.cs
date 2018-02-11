@@ -95,12 +95,9 @@ namespace VPShelter
 
         public abstract string PrintPetDiet();
 
-        public int HungerLevel()
+        public virtual string Adopted()
         {
-            Random r = new Random();
-            hunger = 0;
-            hunger = r.Next(2,8);
-            return hunger;
+            return petName + " has been adopted";
         }
 
         public virtual string PrintPetInfo()
@@ -108,14 +105,9 @@ namespace VPShelter
             return petName + ", " + petType + ", " + petDiet;
         }
   
-        public virtual void CheckLevels()
+        public virtual string CheckLevels()
         {
-            Console.WriteLine(PetName);
-            Console.Write("Hunger: " + hunger);
-            Console.Write("  Thirst: " + thirst);
-            //Console.Write("  Tiredness: " + tiredness);
-            //Console.Write("  Waste: " + waste);
-            Console.WriteLine("  Interact: " + interact + " \n");
+            return "Hunger: " + hunger + ", Thirst: " + thirst +  ", Interact: " + thirst;
         }
 
         public void Tick()

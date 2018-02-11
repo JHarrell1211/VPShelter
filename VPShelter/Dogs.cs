@@ -20,6 +20,12 @@ namespace VPShelter
         }
 
         //Constructors
+        public Dogs(string petName, string dogType)
+        {
+            PetName = petName;
+            this.dogType = dogType;
+        }
+
         public Dogs(string petName, string petDiet, string dogType) : base()
         {
             this.PetName = petName;
@@ -48,9 +54,14 @@ namespace VPShelter
         {
             return PetName + " eats " + PetDiet;
         }
-        public override void CheckLevels()
+
+        public override string Adopted()
         {
-            base.CheckLevels();
+            return base.Adopted();
+        }
+        public override string CheckLevels()
+        {
+           return  base.CheckLevels();
         }
 
         public void Eat()
