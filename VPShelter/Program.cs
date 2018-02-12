@@ -90,7 +90,7 @@ namespace VPShelter
                     {
                         foreach (Dogs level in dogsList)
                         {
-                            Console.WriteLine(level.CheckLevels());
+                            Console.WriteLine(level.PrintName() + ": " +  level.CheckLevels());
                         }
 
                         Console.WriteLine("");
