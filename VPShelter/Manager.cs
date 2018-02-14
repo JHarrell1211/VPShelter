@@ -32,10 +32,6 @@ namespace VPShelter
         }
 
         //Methods
-        public void AdoptPet()
-        {
-
-        }
 
         public override void FeedAllPets()
         {

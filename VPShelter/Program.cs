@@ -221,11 +221,13 @@ namespace VPShelter
                         i = 1;
                         Console.WriteLine("");
                         Console.WriteLine("Choose A Pet");
+                        
 
                         foreach (Dogs info in dogsList)
                         {
                             Console.WriteLine(i++ + ". " + info.PrintPetInfo());        
                         }
+                        newInput = int.Parse(Console.ReadLine());
                         Console.WriteLine("");
 
                         if (newInput == 1)
